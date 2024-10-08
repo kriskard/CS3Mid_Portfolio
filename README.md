@@ -1,1 +1,3 @@
-# CS3Mid_Portfolio
+# CS3 Midterms Profile
+
+## Profile - Ragonton, Kristian D.
