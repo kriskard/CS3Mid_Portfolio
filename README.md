@@ -1,3 +1,3 @@
-# CS3 Midterms Profile
+# cs3mid_portfolio_ragonton
 
-## Profile - Ragonton, Kristian D.
+A new Flutter project.
