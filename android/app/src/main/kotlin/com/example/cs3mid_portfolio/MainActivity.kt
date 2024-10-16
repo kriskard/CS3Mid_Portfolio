@@ -1,4 +1,4 @@
-package com.example.cs3mid_portfolio_ragonton
+package com.example.cs3mid_portfolio
 
 import io.flutter.embedding.android.FlutterActivity
 

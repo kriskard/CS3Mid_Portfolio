@@ -14,13 +14,9 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  final double mobileCoverHeight = 280;
+  double coverHeight = 280;
 
-  final double mobileProfileHeight = 280;
-
-  final double webCoverHeight = 280;
-
-  final double webProfileHeight = 144;
+  final double profileHeightRatio = 0.95;
 
   String descString = '';
 
@@ -32,7 +28,11 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
+    coverHeight = (MediaQuery.of(context).size.height)*0.4;
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 254, 254, 254),
+      ),
       home: Scaffold(
         body: ListView(
           padding: EdgeInsets.zero,
@@ -51,11 +51,11 @@ class _MainAppState extends State<MainApp> {
           alignment: Alignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: mobileProfileHeight/2.5),
+              margin: EdgeInsets.only(bottom: (coverHeight*profileHeightRatio)/2.5),
               child: profileCover(),
             ),
             Positioned(
-              top: (mobileCoverHeight - mobileProfileHeight/1.25),
+              top: (coverHeight - (coverHeight*profileHeightRatio)/1.25),
               child: profilePicture()
             ),
           ],
@@ -66,16 +66,16 @@ class _MainAppState extends State<MainApp> {
     color: Colors.grey,
     child: Image.asset('assets/bg.png',
       width: double.infinity,
-      height: mobileCoverHeight,
+      height: coverHeight,
       fit: BoxFit.cover,
       ),
   );
 
    Widget profilePicture() => CircleAvatar(
-    radius: (mobileProfileHeight/2)+5,
+    radius: ((coverHeight*profileHeightRatio)/2)+5,
     backgroundColor: Colors.grey,
     child: CircleAvatar(
-      radius: mobileProfileHeight/2,
+      radius: (coverHeight*profileHeightRatio)/2,
       backgroundColor: Colors.grey.shade800,
       backgroundImage: const AssetImage('assets/pic.jpg'),
     ),
@@ -105,5 +105,3 @@ class _MainAppState extends State<MainApp> {
     });
   }
 }
-
-

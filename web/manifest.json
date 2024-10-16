@@ -1,6 +1,6 @@
 {
-    "name": "cs3mid_portfolio_ragonton",
-    "short_name": "cs3mid_portfolio_ragonton",
+    "name": "cs3mid_portfolio",
+    "short_name": "cs3mid_portfolio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
