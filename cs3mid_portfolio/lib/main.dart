@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MainApp());
@@ -19,6 +21,16 @@ class _MainAppState extends State<MainApp> {
   final double profileHeightRatio = 0.95;
 
   String descString = '';
+
+  Uri websiteURL = Uri.parse('https://github.com/kriskard');
+
+  Future<void> launchWebsite() async{
+    try{
+      await launchUrl(websiteURL);
+    }catch(err){
+      //error
+    }
+  }
 
    @override 
   void initState() { 
@@ -92,8 +104,31 @@ class _MainAppState extends State<MainApp> {
         child: Text(descString, textAlign: TextAlign.center,),
       ),
       const SizedBox(height: 15,),
-      const Text('READ MORE',
+      const Text('LINKS:',
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, decoration: TextDecoration.underline),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(onPressed: (){
+            websiteURL = Uri.parse('https://github.com/kriskard');
+            launchWebsite();
+          }, 
+          icon: const FaIcon(FontAwesomeIcons.github)
+          ),
+          IconButton(onPressed: (){
+            websiteURL = Uri.parse('https://github.com/kriskard');
+            launchWebsite();
+          }, 
+          icon: const FaIcon(FontAwesomeIcons.linkedin)
+          ),
+          IconButton(onPressed: (){
+            websiteURL = Uri.parse('https://www.facebook.com/pdskristian.ragonton');
+            launchWebsite();
+          }, 
+          icon: const FaIcon(FontAwesomeIcons.facebook)
+          ),
+        ],
       ),
     ],
    );
